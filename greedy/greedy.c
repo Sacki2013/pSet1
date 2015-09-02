@@ -8,8 +8,8 @@ int main() {
       dime = 10,
       nickel = 5,
       penny = 1,
-      cents;
-  float changeDue;
+      centRnd;
+  float changeDue, cents;
 
   // Prompt User to Input Change amount
   do {
@@ -17,7 +17,9 @@ int main() {
     scanf("%f", &changeDue );
     // Convert to cents
     cents = changeDue * 100;
-  } while(cents <= 0);
+    centRnd = round(cents);
+
+  } while(centRnd <= 0);
 
   // Line 24 = quarters, Line 29 = dimes, Line 35 nickels, Line 41 pennies
     // Uses a while loops to check if the number of cents remaining is greater
@@ -26,28 +28,28 @@ int main() {
     // pass to an if statement checking if the cents left is zero, if it is it
     // will output total coins, if not it will move to next denomination until
     // complettion.
-  while (cents >= quarter) {
-    cents = cents - quarter;
+  while (centRnd >= quarter) {
+    centRnd = centRnd - quarter;
     coinsTotal = coinsTotal + 1;
-  } if (cents == 0) {
+  } if (centRnd == 0) {
       printf("The miminum number of coins is: %d\n", coinsTotal);
   } else {
-      while (cents >= dime) {
-        cents - dime;
+      while (centRnd >= dime) {
+        centRnd = centRnd- dime;
         coinsTotal = coinsTotal + 1;
-      } if (cents == 0) {
+      } if (centRnd == 0) {
           printf("The minimum number of coins is: %d\n", coinsTotal);
       } else {
-          while (cents >= nickel) {
-            cents = cents - nickel;
+          while (centRnd >= nickel) {
+            centRnd = centRnd - nickel;
             coinsTotal = coinsTotal + 1;
-          } if (cents == 0) {
+          } if (centRnd == 0) {
               printf("The minimum number of coins is: %d\n", coinsTotal);
           } else {
-              while (cents >= penny) {
-                cents = cents - penny;
+              while (centRnd >= penny) {
+                centRnd = centRnd - penny;
                 coinsTotal = coinsTotal + 1;
-              } if (cents == 0) {
+              } if (centRnd == 0) {
                   printf("The minimum number of coins is: %d\n", coinsTotal);
                 }
         }
